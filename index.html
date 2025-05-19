@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interest Registration</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+  </head>
+  <body class="bg-gradient">
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-xl-7">
+          <div class="card card-registration shadow position-relative">
+            <div class="card-decoration-top"></div>
+            
+            <div class="card-body p-4 p-md-5">
+              <h3 class="mb-1 pb-2 text-center gradient-text fw-bold">Registration Form</h3>
+              <h6 class="mb-4 pb-2 text-center gradient-text fw-medium">This is a form of interest. Just to let us know that you are interested in this course.</h6>
+              
+              <!-- Progress Steps -->
+              <div class="mb-5 position-relative steps-container d-flex justify-content-between">
+                <div class="progress-line"></div>
+                <div class="progress-line-active" id="progressLineActive"></div>
+                <!-- Step circles will be added here by JavaScript -->
+              </div>
+              
+              <!-- Registration Form -->
+              <form id="registrationForm">
+                <!-- Step 1: Personal Information -->
+                <div class="form-step" id="step1">
+                  <h4 class="step-title text-center mb-4">Personal Information</h4>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <div class="form-group">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <div class="input-group-custom">
+                          <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-person"></i></span>
+                            <input type="text" class="form-control" id="firstName" placeholder="Enter your first name">
+                          </div>
+                        </div>
+                        <div class="text-danger small mt-1" id="firstNameError"></div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <div class="form-group">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <div class="input-group-custom">
+                          <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-person"></i></span>
+                            <input type="text" class="form-control" id="lastName" placeholder="Enter your last name">
+                          </div>
+                        </div>
+                        <div class="text-danger small mt-1" id="lastNameError"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Step 2: Contact Information -->
+                <div class="form-step d-none" id="step2">
+                  <h4 class="step-title text-center mb-4">Contact Details</h4>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <div class="input-group-custom">
+                          <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                          </div>
+                        </div>
+                        <div class="text-danger small mt-1" id="emailError"></div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <div class="form-group">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <div class="input-group-custom">
+                          <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                            <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
+                          </div>
+                        </div>
+                        <div class="text-danger small mt-1" id="phoneError"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Step 3: Additional Information -->
+                <div class="form-step d-none" id="step3">
+                  <h4 class="step-title text-center mb-4">Additional Information</h4>
+                  <div class="row justify-content-center mb-4">
+                    <div class="col-12">
+                      <label class="form-label d-block text-center mb-3">Select your gender</label>
+                      <div class="d-flex justify-content-center gap-3 flex-wrap">
+                        <div class="form-check-card">
+                          <input class="form-check-input visually-hidden" type="radio" name="gender" id="male" value="male">
+                          <label class="form-check-label d-flex flex-column align-items-center" for="male">
+                            <i class="bi bi-gender-male fs-3 mb-2"></i>
+                            Male
+                          </label>
+                        </div>
+                        <div class="form-check-card">
+                          <input class="form-check-input visually-hidden" type="radio" name="gender" id="female" value="female">
+                          <label class="form-check-label d-flex flex-column align-items-center" for="female">
+                            <i class="bi bi-gender-female fs-3 mb-2"></i>
+                            Female
+                          </label>
+                        </div>
+                        <div class="form-check-card">
+                          <input class="form-check-input visually-hidden" type="radio" name="gender" id="other" value="other">
+                          <label class="form-check-label d-flex flex-column align-items-center" for="other">
+                            <i class="bi bi-person fs-3 mb-2"></i>
+                            Other
+                          </label>
+                        </div>
+                      </div>
+                      <div class="text-danger small mt-2 text-center" id="genderError" style="display: none;"></div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Form Navigation Buttons -->
+                <div class="mt-4 d-flex justify-content-between">
+                  <button type="button" id="prevBtn" class="btn btn-outline-secondary d-none">
+                    <i class="bi bi-arrow-left me-2"></i>Previous
+                  </button>
+                  <div class="ms-auto">
+                    <button type="button" id="nextBtn" class="btn btn-gradient">
+                      Next<i class="bi bi-arrow-right ms-2"></i>
+                    </button>
+                    <button type="submit" id="submitBtn" class="btn btn-gradient d-none">
+                      Complete Registration<i class="bi bi-shield ms-2"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Success Toast -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+      <div id="successToast" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body">
+            <i class="bi bi-check-circle me-2"></i>
+            Registration completed successfully!
+          </div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <h5 class="modal-title gradient-text" id="confirmationModalLabel">
+              <i class="bi bi-check-circle-fill me-2"></i>
+              Registration Successful
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h4 id="confirmationGreeting" class="mb-3 text-purple"></h4>
+            <p class="mb-2">Thank you for reaching out to us! We will contact you shortly on your number or email.</p>
+            <div class="card mt-3 bg-light">
+              <div class="card-body">
+                <p class="mb-2">
+                  <i class="bi bi-envelope me-2 text-purple"></i>
+                  Email: <span id="confirmationEmail" class="fw-medium"></span>
+                </p>
+                <p class="mb-2">
+                  <i class="bi bi-telephone me-2 text-purple"></i>
+                  Phone: <span id="confirmationPhone" class="fw-medium"></span>
+                </p>
+                <p class="mb-0">
+                  <i class="bi bi-person me-2 text-purple"></i>
+                  Gender: <span id="confirmationGender" class="fw-medium"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer border-0">
+            <button type="button" class="btn btn-gradient" id="confirmationCloseBtn" data-bs-dismiss="modal">
+              <i class="bi bi-check2 me-2"></i>Got it!
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

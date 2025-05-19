@@ -1,0 +1,337 @@
+.bg-gradient {
+    background: rgb(226, 226, 226);;
+  }
+
+.container{
+    margin-top: 5px;
+}
+  .p-md-5 {
+    padding: 3rem 4rem !important;
+   }
+  
+   @media (max-width: 768px) {
+    .p-md-5 {
+        padding: 3rem 2rem!important;
+    }
+
+    .step-label{
+        display: none;
+    }
+}
+
+@media (max-width: 500px) {
+    #prevBtn{
+        display: none;
+    }
+}
+  .card-registration {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+  }
+  
+  .card-decoration-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    background: rgb(11, 124, 177);
+  }
+
+  
+  .z-index-2 {
+    z-index: 2;
+  }
+  
+  /* Typography */
+  .gradient-text {
+    background: rgb(11, 124, 177);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .step-title {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+  
+  .step-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: rgb(11, 124, 177);
+  }
+  
+  /* Progress Steps */
+  .progress-line {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: #e9e9e9;
+    border-radius: 3px;
+  }
+  
+  .progress-line-active {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(to right, #87cdf5, #187bbd);
+    border-radius: 3px;
+    transition: width 0.4s ease;
+  }
+  
+  .steps-container {
+    position: relative;
+  }
+  
+  .step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease;
+    z-index: 1;
+  }
+  
+  .step-circle-active {
+    background: linear-gradient(to right, #7faad3, #1d6baa);
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(135, 196, 245, 0.5);
+  }
+  
+  .step-circle-completed {
+    background: linear-gradient(to right, #48a14b, #33d43b);
+    color: white;
+  }
+  
+  .step-circle-inactive {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    color: #757575;
+  }
+  
+  .step-circle::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: transparent;
+  }
+  
+  .step-circle-active::after {
+    background-color: #67a5df;
+    animation: pulse 1.5s infinite;
+  }
+  
+  .step-label {
+    font-size: 0.75rem;
+    position: absolute;
+    top: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+  
+  .step-label-active {
+    color: #1066a0;
+    font-weight: 600;
+  }
+  
+  .step-label-completed {
+    color: #3e8f41;
+  }
+  
+  /* Form Controls */
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .input-group-custom {
+    position: relative;
+  }
+  
+  .input-group-custom .input-group {
+    border-radius: 0.375rem;
+    transition: all 0.2s ease;
+  }
+  
+  .input-group-custom .input-group:hover,
+  .input-group-custom .input-group:focus-within {
+    box-shadow: 0 0 0 1px rgba(135, 205, 245, 0.5);
+  }
+  
+  .input-group-custom::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, #87c0f5, #2070b3);
+    transition: width 0.3s ease;
+  }
+  
+  .input-group-custom:hover::after,
+  .input-group-custom:focus-within::after {
+    width: 100%;
+  }
+  
+  /* Form Check Cards */
+  .form-check-card {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+  }
+  
+  .form-check-card:hover {
+    border-color: #87c4f5;
+    background-color: rgba(155, 135, 245, 0.05);
+  }
+  
+  .form-check-card .form-check-input:checked ~ .form-check-label {
+    font-weight: 500;
+  }
+  
+  .form-check-card.selected {
+    border-color: #3b7dbb;
+    background: linear-gradient(to bottom, #fff, rgba(155, 135, 245, 0.1));
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-check-card.selected::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, #4a94da, #156ba5);
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+  
+  /* Buttons */
+  .btn-gradient {
+    background: linear-gradient(to right, #408fcf, #1a61a3);
+    border: none;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.375rem;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-gradient:hover {
+    background: linear-gradient(to right, #77aae5, #1a558b);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(135, 201, 245, 0.4);
+  }
+  
+  .btn-outline-secondary {
+    border-color: #c6e1ff;
+    color: #2e61a3;
+  }
+  
+  .btn-outline-secondary:hover {
+    background-color: rgba(135, 183, 245, 0.1);
+    border-color: #1567b4;
+    color: #186dbd;
+  }
+  
+  /* Links */
+  .gradient-link {
+    color: #87c9f5;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .gradient-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to right, #87baf5, #1e5fb4);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+  }
+  
+  .gradient-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
+  /* Confirmation Modal Styles */
+  .text-purple {
+    color: #2771ad;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(155, 135, 245, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 5px rgba(155, 135, 245, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(155, 135, 245, 0);
+    }
+  }
+  
+  .form-step {
+    animation: fadeIn 0.4s ease-out;
+  }
+  
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  /* Modal overrides */
+  .modal-content {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    overflow: hidden;
+    padding: 5px 10px;
+  }
